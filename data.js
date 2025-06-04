@@ -165,6 +165,20 @@ for (i=0; i<videogiochi.game.length;i++){
 return object;
 }
 
+function percentualeCompletati(oggetto){
+
+  let count = 0
+  let perc = 0
+  for (i=0; i<oggetto.game.length;i++){
+    if (oggetto.game[i].isFinished === true){
+      count++;
+    }
+  }
+
+  perc = (count/oggetto.game.length)*100
+  return perc+' %'
+}
+
 
 
 sixFps(videogiochi);
@@ -178,3 +192,4 @@ console.log(ordina(videogiochi))
 removeGame('Lol')
 console.log(videogiochi.game)
 console.log(raggruppa(videogiochi))
+console.log(percentualeCompletati(videogiochi))
