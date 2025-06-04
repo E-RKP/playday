@@ -56,6 +56,24 @@ let videogiochi = {
       }
     }
    
+  },
+
+  completed: function(){
+    let arr = []
+    for (i=0; i<this.game.length;i++){
+      if (this.game[i].isFinished === true){
+        arr.push(this.game[i].title)
+      }
+    }
+    return `I giochi completati sono ${arr.join(', ')}`
+  },
+
+  searchPlat: function(){
+    for (i=0; i<this.game.length;i++){
+      if (this.game[i].platform === 'PS4'){
+        console.log(this.game[i].title)
+      }
+    }
   }
 }
 
@@ -78,7 +96,7 @@ function contagiochi(oggetto){
 }
 
 console.log(contagiochi(videogiochi))
-videogiochi.nonCompleted(videogiochi)
+
 
 function aggiungiGioco(nome, console, fps){
 
@@ -111,3 +129,9 @@ function sixFps(oggetto){
 }
 
 sixFps(videogiochi);
+console.log('-')
+videogiochi.nonCompleted();
+console.log('-')
+videogiochi.searchPlat();
+console.log('-')
+console.log(videogiochi.completed())
