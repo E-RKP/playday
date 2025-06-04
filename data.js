@@ -50,3 +50,20 @@ let videogiochi = {
 
 console.log(videogiochi.searchGame('Devious City'))
 
+function stampagiochi(oggetto){
+  for (i=0; i<oggetto.game.length;i++){
+    console.log(oggetto.game[i])
+  }
+}
+
+stampagiochi(videogiochi);
+
+function contagiochi(oggetto){
+  let count = 0
+  for (i=0; i<oggetto.game.length;i++){
+    count++;
+  }
+  return count;
+}
+
+console.log(contagiochi(videogiochi))
