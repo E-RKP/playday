@@ -128,6 +128,25 @@ function sixFps(oggetto){
   }
 }
 
+function ordina(oggetto){
+  let okk = []
+  for (i=0; i<oggetto.game.length;i++){
+    okk.push(oggetto.game[i].title)
+  }
+  okk.sort();
+  okk.join(', ');
+  return okk;
+  
+}
+
+function removeGame(nome){
+  for (i=0; i<videogiochi.game.length;i++){
+    if (nome === videogiochi.game[i].title){
+      videogiochi.game.splice([i],1)
+    }
+  }
+}
+
 sixFps(videogiochi);
 console.log('-')
 videogiochi.nonCompleted();
@@ -135,3 +154,6 @@ console.log('-')
 videogiochi.searchPlat();
 console.log('-')
 console.log(videogiochi.completed())
+console.log(ordina(videogiochi))
+removeGame('Lol')
+console.log(videogiochi.game)
