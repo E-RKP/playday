@@ -45,6 +45,17 @@ let videogiochi = {
       }
     }
     return 'Gioco non trovato'
+  },
+
+  nonCompleted: function (){
+
+    let count = 0
+    for (i=0; i<this.game.length;i++){
+      if (this.game[i].isFinished === false){
+        console.log(this.game[i].title)
+      }
+    }
+   
   }
 }
 
@@ -67,3 +78,36 @@ function contagiochi(oggetto){
 }
 
 console.log(contagiochi(videogiochi))
+videogiochi.nonCompleted(videogiochi)
+
+function aggiungiGioco(nome, console, fps){
+
+  let newGame = {
+    title: nome,
+    platform: console,
+    fps: fps,
+    isFinished: false
+  }
+
+  for (i=0; i<videogiochi.game.length;i++){
+    if (nome === videogiochi.game[i].title){
+      console.log('Gioco già presente')
+      return;
+    }
+  }
+  videogiochi.game.push(newGame)
+
+}
+
+aggiungiGioco('Lol', 'PS5', '30FPS')
+console.log(videogiochi.game)
+
+function sixFps(oggetto){
+  for (i=0; i<oggetto.game.length;i++){
+    if (oggetto.game[i].fps === '60fps'){
+      console.log(oggetto.game[i].title)
+    }
+  }
+}
+
+sixFps(videogiochi);
