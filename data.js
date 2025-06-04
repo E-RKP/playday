@@ -147,6 +147,26 @@ function removeGame(nome){
   }
 }
 
+function raggruppa (oggetto){
+
+let object = {
+  PS4: [],
+  PS5: []
+}
+
+for (i=0; i<videogiochi.game.length;i++){
+  if (videogiochi.game[i].platform === 'PS4'){
+    object.PS4.push(videogiochi.game[i])
+  }else if (videogiochi.game[i].platform === 'PS5'){
+    object.PS5.push(videogiochi.game[i])
+  }
+}
+
+return object;
+}
+
+
+
 sixFps(videogiochi);
 console.log('-')
 videogiochi.nonCompleted();
@@ -157,3 +177,4 @@ console.log(videogiochi.completed())
 console.log(ordina(videogiochi))
 removeGame('Lol')
 console.log(videogiochi.game)
+console.log(raggruppa(videogiochi))
